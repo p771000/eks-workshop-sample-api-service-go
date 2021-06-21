@@ -15,7 +15,7 @@ func main() {
 
 		f := fib()
 
-		res := &response{Message: "Hello from github - codebuild - codepipeline to this Kubernetes World"}
+		res := &response{Message: "Hello World"}
 
 		for _, e := range os.Environ() {
 			pair := strings.Split(e, "=")
@@ -42,6 +42,8 @@ func main() {
 
 type response struct {
 	Message string   `json:"message"`
+	EnvVars []string `json:"env"`
+	Fib     []int    `json:"fib"`
 }
 
 func fib() func() int {
